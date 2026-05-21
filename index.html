@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Francis Fernandez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green: #1D9E75;
+      --green-dim: rgba(29, 158, 117, 0.15);
+      --bg: #0d0f0e;
+      --surface: #111413;
+      --border: rgba(255,255,255,0.08);
+      --border-hover: rgba(29, 158, 117, 0.4);
+      --text: #e8ede9;
+      --muted: #6b7870;
+    }
+
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'JetBrains Mono', monospace;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 460px;
+      padding: 1.5rem;
+    }
+
+    .card {
+      position: relative;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: 14px;
+      padding: 2.5rem 2rem;
+      overflow: hidden;
+      animation: fadein 0.6s ease both;
+    }
+
+    @keyframes fadein {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.035;
+      background-image:
+        linear-gradient(#fff 1px, transparent 1px),
+        linear-gradient(90deg, #fff 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .corner {
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-color: var(--green);
+      border-style: solid;
+      opacity: 0.35;
+    }
+    .corner-tl { top: 14px; left: 14px; border-width: 1.5px 0 0 1.5px; }
+    .corner-tr { top: 14px; right: 14px; border-width: 1.5px 1.5px 0 0; }
+    .corner-bl { bottom: 14px; left: 14px; border-width: 0 0 1.5px 1.5px; }
+    .corner-br { bottom: 14px; right: 14px; border-width: 0 1.5px 1.5px 0; }
+
+    .tag {
+      font-size: 11px;
+      color: var(--muted);
+      letter-spacing: 0.08em;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+    .tag::before { content: '> '; color: var(--green); }
+
+    .name {
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1em;
+      background: var(--green);
+      vertical-align: middle;
+      margin-left: 3px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .role {
+      font-size: 12px;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+    .role span { color: var(--green); }
+
+    .divider {
+      height: 0.5px;
+      background: var(--border);
+      margin-bottom: 1.5rem;
+    }
+
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .link-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--muted);
+      font-size: 12px;
+      padding: 9px 10px;
+      border-radius: 8px;
+      border: 0.5px solid transparent;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
+    }
+    .link-row:hover {
+      border-color: var(--border-hover);
+      color: var(--text);
+      background: var(--green-dim);
+    }
+    .link-row svg {
+      flex-shrink: 0;
+      color: var(--green);
+    }
+    .link-label { flex: 1; }
+    .link-row .arrow { font-size: 11px; opacity: 0.35; }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card">
+      <div class="grid-bg"></div>
+      <div class="corner corner-tl"></div>
+      <div class="corner corner-tr"></div>
+      <div class="corner corner-bl"></div>
+      <div class="corner corner-br"></div>
+
+      <span class="tag">ffernandez.io</span>
+      <div class="name">Francis Fernandez<span class="cursor"></span></div>
+      <div class="role"><span>//</span> TechOps Systems Engineer</div>
+      <div class="divider"></div>
+      <div class="links">
+        <a class="link-row" href="https://www.linkedin.com/in/francis-fernandez-61100520/" target="_blank" rel="noopener">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          </svg>
+          <span class="link-label">linkedin</span>
+          <span class="arrow">↗</span>
+        </a>
+        <a class="link-row" href="mailto:francis@ffernandez.io">
+          <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" aria-hidden="true">
+            <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+          </svg>
+          <span class="link-label">francis@ffernandez.io</span>
+          <span class="arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
